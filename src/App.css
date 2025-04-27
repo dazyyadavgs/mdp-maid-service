@@ -1,38 +1,224 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Container for the Maid List */
+.register-maid-section {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.register-maid-section a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.register-maid-section a:hover {
+  text-decoration: underline;
+  color: #128C7E; 
+}
+
+
+h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
+  margin-top: 20px;
+  font-weight: bold;
+}
+.maid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center; /* This will center the grid items horizontally */
+  padding: 20px;
+}
+
+/* Individual Maid Card */
+.maid-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 250px; /* Set a max width to keep the cards at a reasonable size */
+}
+
+
+.maid-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* 🔵 circle bana diya */
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+
+/* Button Styling */
+.book-now-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.book-now-btn:hover {
+  background-color: #45a049;
+}
+
+/* Styling for the Booking Form Popup */
+.form-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.form-popup-content form {
   display: flex;
   flex-direction: column;
+  gap: 15px;
+}
+
+.form-popup-content input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-popup-content button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-popup-content button:hover {
+  background-color: #45a049;
+}
+
+/* Close Button */
+.close-btn {
+  background-color: red;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.close-btn:hover {
+  background-color: darkred;
+}
+.contact-now-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.contact-now-btn:hover {
+  background-color: #45a049;
+}
+
+.navbar {
+  position: relative;
+  background-color: #f5f5f5;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 60px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap; /* Allow elements to wrap on smaller screens */
 }
 
-.App-link {
-  color: #61dafb;
+/* Centered Title */
+.navbar-center h1 {
+  margin: 0;
+  font-size: 22px;
+  color: #2E8B57;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Admin Link on the Right */
+.admin-link-container {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.admin-link {
+  text-decoration: none;
+  color: #4CAF50;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.admin-link:hover {
+  color: #388E3C;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 600px) {
+  .navbar {
+    flex-direction: column; /* Stack elements vertically on mobile */
+    height: auto; /* Allow height to grow on mobile */
+    padding: 10px 10px; /* Reduce horizontal padding */
   }
-  to {
-    transform: rotate(360deg);
+
+  .navbar-center h1 {
+    font-size: 18px; /* Adjust font size for mobile */
+    margin-top: 10px;
+  }
+
+  .admin-link-container {
+    position: relative;
+    right: 0;
+    margin-top: 10px; /* Space between link and title */
+  }
+
+  .admin-link {
+    font-size: 14px; /* Smaller font size for admin link */
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .navbar-center h1 {
+    font-size: 14px; /* Even smaller font size for very small screens */
+  }
+
+  .admin-link {
+    font-size: 12px; /* Make admin link even smaller */
   }
 }
