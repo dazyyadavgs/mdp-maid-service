@@ -1,38 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../App.css';
-import { Link } from 'react-router-dom';
-
 
 
 const HomePage = () => {
-  // const maidList = [
-  //   { id: 1, name: 'Anjali', address: 'Ganesh Sthan, Madhepura', phone: '9876543210', imageUrl: 'https://randomuser.me/api/portraits/women/1.jpg' },
-  //   { id: 2, name: 'Sunita', address: 'Madhepura Main Market', phone: '9876543211', imageUrl: 'https://randomuser.me/api/portraits/women/2.jpg' },
-  //   { id: 3, name: 'Priya', address: 'Ganesh Sthan', phone: '9876543212', imageUrl: 'https://randomuser.me/api/portraits/women/3.jpg' },
-  //   { id: 4, name: 'Aarti', address: 'Madhepura Station Road', phone: '9876543213', imageUrl: 'https://randomuser.me/api/portraits/women/4.jpg' },
-  //   { id: 5, name: 'Pooja', address: 'Ganesh Sthan', phone: '9876543214', imageUrl: 'https://randomuser.me/api/portraits/women/5.jpg' },
-  //   { id: 6, name: 'Meera', address: 'Madhepura Bazar', phone: '9876543215', imageUrl: 'https://randomuser.me/api/portraits/women/6.jpg' },
-  // ];
-  const [maidList, setMaidList] = useState([]);
+  const maidList = [
+    { id: 1, name: 'Anjali', address: 'Ganesh Sthan, Madhepura', phone: '9876543210' },
+    { id: 2, name: 'Sunita', address: 'Madhepura Main Market', phone: '9876543211' },
+    { id: 3, name: 'Priya', address: 'Ganesh Sthan', phone: '9876543212' },
+    { id: 4, name: 'Aarti', address: 'Madhepura Station Road', phone: '9876543213' },
+    { id: 5, name: 'Pooja', address: 'Ganesh Sthan', phone: '9876543214' },
+    { id: 6, name: 'Meera', address: 'Madhepura Bazar', phone: '9876543215' },
+  ];
 
-  useEffect(() => {
-    // 🔥 Local storage se maid list uthao
-    const storedMaidList = JSON.parse(localStorage.getItem('maidList')) || [];
-    setMaidList(storedMaidList);
-  }, []);
-  const defaultImageUrl = 'https://randomuser.me/api/portraits/women/44.jpg'; // Default image URL
-
+  // Function to generate a UI Avatar URL based on name initials
+  const getAvatarUrl = (name) => {
+    const initials = name.split(' ').map((part) => part.charAt(0).toUpperCase()).join('');
+    return `https://ui-avatars.com/api/?name=${initials}&size=150`;
+  };
 
   return (
     <div>
       <div className="navbar">
-          <div className="admin-link-container">
-            <Link to="/admin" className="admin-link">Admin Panel</Link>
-          </div>
-
-          <div className="navbar-center">
-              <h1>Madhepura और Ganesh Sthan Maid Service</h1>
-          </div>
+        <div className="navbar-center">
+          <h1>Madhepura और Ganesh Sthan Maid Service</h1>
+        </div>
       </div>
 
       <h1 style={{ textAlign: 'center', marginTop: '20px' }}>
@@ -43,7 +34,6 @@ const HomePage = () => {
       <div className="register-maid-section">
         <p>अगर आप Maid के रूप में रजिस्टर करना चाहते हैं, तो हमें <a href="https://wa.me/youradminwhatsapplink" target="_blank" rel="noopener noreferrer">WhatsApp पर संपर्क करें</a></p>
       </div>
-      
 
       {/* Available Maids Title */}
       <h2>Available Maids</h2>
@@ -52,9 +42,9 @@ const HomePage = () => {
       <div className="maid-container">
         {maidList.map((maid) => (
           <div key={maid.id} className="maid-card">
-            {/* <img src={maid.imageUrl} alt={maid.name} /> */}
+            {/* Generate the avatar dynamically based on the maid's name */}
             <img
-              src={maid.image || defaultImageUrl}
+              src={getAvatarUrl(maid.name)} // Get avatar URL with initials
               alt="Maid Avatar"
               className="maid-avatar"
             />
