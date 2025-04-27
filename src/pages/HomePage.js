@@ -32,7 +32,7 @@ const HomePage = () => {
 
       {/* Register as Maid Section */}
       <div className="register-maid-section">
-        <p>अगर आप Maid के रूप में रजिस्टर करना चाहते हैं, तो हमें <a href="https://wa.me/youradminwhatsapplink" target="_blank" rel="noopener noreferrer">WhatsApp पर संपर्क करें</a></p>
+        <p>अगर आप Maid के रूप में रजिस्टर करना चाहते हैं, तो हमें <a href="https://wa.me/9905483289?text=नमस्कार!%20मैं%20घरेलू%20सहायक%20(मेड)%20के%20रूप%20में%20registration%20कराना%20चाहता/चाहती%20हूँ।%20कृपया%20प्रक्रिया%20बताएं।%20धन्यवाद!" target="_blank" rel="noopener noreferrer">WhatsApp पर संपर्क करें</a></p>
       </div>
 
       {/* Available Maids Title */}
