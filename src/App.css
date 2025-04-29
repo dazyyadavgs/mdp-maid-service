@@ -62,36 +62,17 @@
 /* Centered Title */
 .navbar-center h1 {
   margin: 0;
-  color: #2E8B57;
+  color: #ADFF2F;
   text-align: center;
   font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  font-size: 1.4rem;
+  font-size: 2rem;      /* Bigger font */
+  line-height: 1;       /* Prevents height expansion */
 }
 
-/* Admin Link on the Right */
-.admin-link-container {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.admin-link {
-  text-decoration: none;
-  color: #4CAF50;
-  /* color: #cccccc; */
-  font-weight: bold;
-  font-size: 16px;
-  
-}
-
-.admin-link:hover {
-  color: #388E3C;
-}
 
 /* Mobile responsiveness */
 @media screen and (max-width: 600px) {
@@ -105,25 +86,11 @@
     font-size: 18px; /* Adjust font size for mobile */
     margin-top: 10px;
   }
-
-  .admin-link-container {
-    position: relative;
-    right: 0;
-    margin-top: 10px; /* Space between link and title */
-  }
-
-  .admin-link {
-    font-size: 14px; /* Smaller font size for admin link */
-  }
 }
 
 @media screen and (max-width: 400px) {
   .navbar-center h1 {
     font-size: 14px; /* Even smaller font size for very small screens */
-  }
-
-  .admin-link {
-    font-size: 12px; /* Make admin link even smaller */
   }
 }
 
